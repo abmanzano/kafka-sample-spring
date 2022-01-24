@@ -1,0 +1,46 @@
+/* ************************************************** */
+/*                 Order, Product, etc.               */
+/* ************************************************** */
+Tests have been run with below configuration:
+800 screws per product
+100000 products
+Make sure that you mimic these figures to recreate the exact same test scenario.
+
+
+>>> Spring Serializer on similar object. Before submission.
+	SerializationUtils.serialize(Utils.getMsg(id));
+
+SERIALIZING WITH SPRING UTILS
+Spring serializer. Message size in bytes is: 5500859
+
+
+
+>>> Kafka String Serializer
+	org.apache.kafka.common.serialization.StringSerializer
+	
+org.apache.kafka.common.errors.RecordTooLargeException: The message is 15600262 bytes when serialized which is larger than 1048576, which is the value of the max.request.size configuration.
+
+
+
+>>> Spring Json Serializer
+	org.springframework.kafka.support.serializer.JsonSerializer
+
+org.apache.kafka.common.errors.RecordTooLargeException: The message is 18100309 bytes when serialized which is larger than 1048576, which is the value of the max.request.size configuration.
+
+
+
+>>> Avro Serializer - Binary Encoder
+org.apache.kafka.common.errors.RecordTooLargeException: The message is 4900142 bytes when serialized which is larger than 1048576, which is the value of the max.request.size configuration.
+
+>>> Avro Serializer - Json Encoder
+org.apache.kafka.common.errors.RecordTooLargeException: The message is 14300276 bytes when serialized which is larger than 1048576, which is the value of the max.request.size configuration.
+
+
+
+>>> Custom Serializer - Order object to byte[]
+org.apache.kafka.common.errors.RecordTooLargeException: The message is 15600256 bytes when serialized which is larger than 1048576, which is the value of the max.request.size configuration.
+
+
+
+>>> Protobuf Serializer - with "data.toByteArray()" and "parser.parseFrom(bytes)"
+org.apache.kafka.common.errors.RecordTooLargeException: The message is 6100142 bytes when serialized which is larger than 1048576, which is the value of the max.request.size configuration.

@@ -1,0 +1,111 @@
+{
+  "type" : "record",
+  "name" : "Order",
+  "namespace" : "com.abmanzano.avrojacksonlib.dto",
+  "fields" : [ {
+    "name" : "byteId",
+    "type" : {
+      "type" : "int",
+      "java-class" : "java.lang.Byte"
+    }
+  }, {
+    "name" : "charId",
+    "type" : {
+      "type" : "int",
+      "java-class" : "java.lang.Character"
+    }
+  }, {
+    "name" : "date",
+    "type" : [ "null", {
+      "type" : "long",
+      "java-class" : "java.util.Date"
+    } ]
+  }, {
+    "name" : "id",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "intId",
+    "type" : {
+      "type" : "int",
+      "java-class" : "java.lang.Integer"
+    }
+  }, {
+    "name" : "longId",
+    "type" : {
+      "type" : "long",
+      "java-class" : "java.lang.Long"
+    }
+  }, {
+    "name" : "paid",
+    "type" : "boolean"
+  }, {
+    "name" : "products",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : {
+        "type" : "record",
+        "name" : "Product",
+        "fields" : [ {
+          "name" : "brand",
+          "type" : [ "null", {
+            "type" : "record",
+            "name" : "Brand",
+            "fields" : [ {
+              "name" : "id",
+              "type" : [ "null", {
+                "type" : "long",
+                "java-class" : "java.lang.Long"
+              } ]
+            }, {
+              "name" : "name",
+              "type" : [ "null", "string" ]
+            } ]
+          } ]
+        }, {
+          "name" : "id",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "image",
+          "type" : [ "null", {
+            "type" : "bytes",
+            "java-class" : "[B"
+          } ]
+        }, {
+          "name" : "name",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "price",
+          "type" : {
+            "type" : "float",
+            "java-class" : "java.lang.Float"
+          }
+        }, {
+          "name" : "productCondition",
+          "type" : [ "null", {
+            "type" : "enum",
+            "name" : "ProductCondition",
+            "symbols" : [ "NEW", "AS_GOOD_AS_NEW", "GOOD", "WITH_SIGNE_OF_USE" ]
+          } ]
+        }, {
+          "name" : "quantity",
+          "type" : {
+            "type" : "int",
+            "java-class" : "java.lang.Integer"
+          }
+        } ]
+      }
+    } ]
+  }, {
+    "name" : "shortId",
+    "type" : {
+      "type" : "int",
+      "java-class" : "java.lang.Short"
+    }
+  }, {
+    "name" : "total",
+    "type" : {
+      "type" : "float",
+      "java-class" : "java.lang.Float"
+    }
+  } ]
+}

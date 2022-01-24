@@ -1,0 +1,80 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.abmanzano.avro.model",
+  "fields": [{
+    "name": "id",
+    "type": "string"
+  }, {
+    "name": "shortId",
+    "type": "int"
+  }, {
+    "name": "intId",
+    "type": "int"
+  }, {
+    "name": "longId",
+    "type": "long"
+  }, {
+    "name": "charId",
+    "type": "string"
+  }, {
+    "name": "byteId",
+    "type": "bytes"
+  }, {
+    "name": "products",
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "record",
+        "name": "Product",
+        "fields": [{
+          "name": "id",
+          "type": "string"
+        }, {
+          "name": "name",
+          "type": "string"
+        }, {
+          "name": "brand",
+          "type": {
+            "type": "record",
+            "name": "Brand",
+            "fields": [{
+              "name": "id",
+              "type": "long"
+            }, {
+              "name": "name",
+              "type": "string"
+            }]
+          }
+        }, {
+          "name": "productCondition",
+          "type": {
+            "type": "enum",
+            "name": "ProductCondition",
+            "symbols": ["NEW", "AS_GOOD_AS_NEW", "GOOD", "WITH_SIGNE_OF_USE"]
+          }
+        }, {
+          "name": "image",
+          "type": ["null", "bytes"],
+          "default": null
+        }, {
+          "name": "price",
+          "type": "float"
+        }, {
+          "name": "quantity",
+          "type": "int"
+        }]
+      }
+    },
+    "default": []
+  }, {
+    "name": "total",
+    "type": "float"
+  }, {
+    "name": "paid",
+    "type": "boolean"
+  }, {
+    "name": "date",
+    "type": "int"
+  }]
+}

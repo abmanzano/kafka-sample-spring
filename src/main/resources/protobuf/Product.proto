@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "Brand.proto";
+
+message Product {
+  string id = 1;
+  string name = 2;
+  Brand brand = 3;
+  enum ProductCondition {
+    NEW = 0;
+    AS_GOOD_AS_NEW = 1;
+    GOOD = 2;
+    WITH_SIGNE_OF_USE = 3;
+  }
+  ProductCondition productCondition = 4;
+  bytes image = 5;
+  float price = 6;
+  int32 quantity = 7;
+}
